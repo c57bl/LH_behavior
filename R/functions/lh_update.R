@@ -19,6 +19,7 @@ lh_update<-function(complete=T,plot.by.test=T){
      
       # extract table
       start.index<-str_detect(curr.data,pattern = "D:") %>% which()
+      if (length(start.index)==3) {start.index=start.index[2:3]}
       end.index<-str_detect(curr.data,pattern = "S:") %>% which()
       box.table.1<-curr.data[(start.index[1]+1):(end.index[1]-1)]
       box.table.2<-curr.data[(start.index[2]+1):(end.index[2]-1)]
