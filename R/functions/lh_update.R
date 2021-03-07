@@ -34,6 +34,7 @@ lh_update<-function(complete=T,plot.by.test=T){
       # extract table
       box.name<-paste0(batch,"_",given_filename)
       start.index<-str_detect(curr.data,pattern = "D:") %>% which()
+      if (length(start.index)==3) {start.index=start.index[2:3]}
       end.index<-str_detect(curr.data,pattern = "S:") %>% which()
       box.table<-curr.data[(start.index+1):(end.index-1)]
       writeLines(box.table,paste0("output/tables/",batch,"/",box.name,'.txt'))
